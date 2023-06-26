@@ -1,0 +1,26 @@
+.chat-gpt {
+  width: 30rem;
+}
+
+.chat-gpt__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-gpt__input {
+  padding: 1rem;
+}
+
+.chat-gpt__submit {
+  width: 100%;
+  margin: 1rem auto 1rem;
+  text-align: center;
+}
+
+.chat-gpt__msg {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem 0.1rem #eaeaea;
+}
