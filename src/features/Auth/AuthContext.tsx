@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
@@ -21,11 +21,16 @@ interface IAuthContext {
   handleSignOut: () => void
 }
 
-type TAuthContext = IAuthContext | null
+const defaultAuthContext: IAuthContext = {
+  user: null,
+  isLoading: false,
+  handleSignIn: () => null,
+  handleSignOut: () => null
+}
 
-const AuthContext = createContext<TAuthContext>(null)
+const AuthContext = createContext<IAuthContext>(defaultAuthContext)
 
-const AuthProvider: React.FC = ({children}: any) => {
+const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState<TUser>(null)
 
   const {
