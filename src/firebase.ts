@@ -6,7 +6,7 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebase = {
   apiKey: 'AIzaSyD4oN6xg61NzNVQkNXV-br9X4pQIE7ik1g',
   authDomain: 'entali-react-chat.firebaseapp.com',
   projectId: 'entali-react-chat',
@@ -17,7 +17,7 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebase)
 
 const auth = getAuth()
 auth.languageCode = 'en'

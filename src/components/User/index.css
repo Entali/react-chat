@@ -11,6 +11,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin: 0 .3rem;
+  background-color: #ccc;
 }
 
 .user__img img {

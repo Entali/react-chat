@@ -12,7 +12,7 @@ const User: React.FC<IUserProps> = (props: IUserProps) => {
   return (
       <div className="user">
         <span className="user__img">
-          <img src={user?.photoURL} alt={user?.displayName || ''}/>
+          <img src={user?.photoURL} alt=''/>
         </span>
         <span className="user__name">{user?.displayName}</span>
       </div>

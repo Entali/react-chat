@@ -1,12 +1,23 @@
-import React, { useState, FormEvent } from 'react'
+import React, {useState, FormEvent, useEffect} from 'react'
 import { getChatResponse } from './api'
 import Loader from './Loader'
+import User from '../../components/User'
+import {useAuth} from '../Auth/AuthContext'
+import {useNavigate} from 'react-router-dom'
 import './index.css'
 
 const ChatGpt: React.FC = () => {
+  const navigate = useNavigate()
   const [prompt, setPrompt] = useState<string | undefined>('')
   const [response, setResponse] = useState<string | undefined>('')
   const [isTyping, setIsTyping] = useState<boolean>(false)
+  const {user, handleSignOut} = useAuth()
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/')
+    }
+  }, [navigate, user])
 
   const getOpenAIResponse = async (e: FormEvent<EventTarget>) => {
     e.preventDefault()
@@ -30,6 +41,14 @@ const ChatGpt: React.FC = () => {
 
   return (
       <div className="chat-gpt">
+        {user && (
+            <>
+              <User user={user}/>
+              <button className="button" onClick={handleSignOut}>
+                Sign out
+              </button>
+            </>
+        )}
         <form onSubmit={getOpenAIResponse} className="chat-gpt__form">
           <input
               id="chat-input"

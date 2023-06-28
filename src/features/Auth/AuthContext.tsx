@@ -5,7 +5,7 @@ import {
   useMemo,
   useState
 } from 'react'
-import {auth, provider} from '../../../firebase.config.ts'
+import {auth, provider} from '../../firebase'
 import {
   useAuthSignInWithPopup,
   useAuthSignOut
@@ -44,11 +44,14 @@ const AuthProvider = ({ children }: any) => {
         displayName: user.displayName || '',
         email: user.email || '',
         photoURL: user.photoURL || ''
-      } || null)
+      })
     }
   })
 
-  const {mutate: signOut, isLoading: isSignOutLoading} = useAuthSignOut(auth, {
+  const {
+    mutate: signOut,
+    isLoading: isSignOutLoading
+  } = useAuthSignOut(auth, {
     onSuccess() {
       setUser(null)
     }
