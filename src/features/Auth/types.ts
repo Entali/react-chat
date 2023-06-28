@@ -4,3 +4,5 @@ export interface IUser {
   photoURL: string
 }
 
+export type TUser = IUser | null
+

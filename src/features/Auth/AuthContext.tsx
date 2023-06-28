@@ -10,9 +10,9 @@ import {
   useAuthSignInWithPopup,
   useAuthSignOut
 } from '@react-query-firebase/auth'
-import {IUser} from './types.ts'
+import {TUser} from './types.ts'
 
-type TUser = IUser | null
+
 
 interface IAuthContext {
   user: TUser

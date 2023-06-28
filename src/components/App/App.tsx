@@ -4,7 +4,7 @@ import {QueryClient, QueryClientProvider} from 'react-query'
 import {AuthProvider} from '../../features/Auth/AuthContext'
 import Auth from '../../features/Auth'
 import ChatGpt from '../../features/ChatGPT'
-import './App.css'
+import Layout from '../Layout'
 
 const queryClient = new QueryClient()
 
@@ -12,12 +12,14 @@ const App: React.FC = () => {
   return (
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Auth/>}/>
-              <Route path="/chat" element={<ChatGpt/>}/>
-            </Routes>
-          </Router>
+          <Layout>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Auth/>}/>
+                <Route path="/chat" element={<ChatGpt/>}/>
+              </Routes>
+            </Router>
+          </Layout>
         </AuthProvider>
       </QueryClientProvider>
   )

@@ -1,0 +1,23 @@
+.layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: #f6f8fa;
+  box-shadow: inset 0 0 0.15rem rgba(0, 0, 0, 0.1);
+}
+
+.layout__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+}

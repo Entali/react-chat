@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react'
-import Loader from './Loader'
-import User from '../../components/User'
 import {useAuth} from '../Auth/AuthContext'
 import {useNavigate} from 'react-router-dom'
 import {ChatGPTProvider, useChatGPT} from './ChatGPTContext'
@@ -9,7 +7,7 @@ import './index.css'
 
 const ChatGptComponent: React.FC = () => {
   const navigate = useNavigate()
-  const {user, handleSignOut} = useAuth()
+  const {user} = useAuth()
   const {
     getOpenAIResponse,
     prompt,
@@ -26,18 +24,9 @@ const ChatGptComponent: React.FC = () => {
 
   return (
       <div className="chat-gpt">
-        {user && (
-            <>
-              <User user={user}/>
-              <button className="button" onClick={handleSignOut}>
-                Sign out
-              </button>
-            </>
-        )}
-        <Form getResponse={getOpenAIResponse} prompt={prompt}
-              setPrompt={setPrompt}/>
-        {isTyping && <Loader/>}
         {!!response && <div className="chat-gpt__msg">{response}</div>}
+        <Form getResponse={getOpenAIResponse} prompt={prompt}
+              setPrompt={setPrompt} isTyping={isTyping}/>
       </div>
   )
 }

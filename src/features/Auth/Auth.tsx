@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {useAuth} from './AuthContext'
 import {useNavigate} from 'react-router-dom'
+import Loading from '../../components/Loading'
 import './index.css'
 
 const Auth: React.FC = () => {
@@ -15,7 +16,7 @@ const Auth: React.FC = () => {
 
   return (
       <div className="auth">
-        {isLoading && <div>loading...</div>}
+        {isLoading && <Loading />}
         {!user?.displayName && !isLoading && (
             <button className="button" onClick={handleSignIn}>
               Sign in

@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
 }
 
 .user__img {
@@ -24,4 +23,8 @@
   font-size: 1rem;
   font-weight: 500;
   margin: 0 .3rem;
+}
+
+.user__sign-out {
+  margin-left: .5rem;
 }

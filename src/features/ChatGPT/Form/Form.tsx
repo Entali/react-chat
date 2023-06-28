@@ -1,9 +1,11 @@
 import React from 'react'
+import Loader from '../Loader'
 
-const Form = ({getResponse, prompt, setPrompt}: {
+const Form = ({getResponse, prompt, setPrompt, isTyping}: {
   getResponse: (e: React.FormEvent<EventTarget>) => Promise<void> | null
   prompt: string
   setPrompt: (prompt: string) => void
+  isTyping: boolean
 }) => {
   return (
       <form onSubmit={getResponse} className="chat-gpt__form">
@@ -14,7 +16,9 @@ const Form = ({getResponse, prompt, setPrompt}: {
             className="chat-gpt__input"
             onChange={e => setPrompt(e.target.value)}
         />
-        <button type="submit" className="chat-gpt__submit">Ask AI</button>
+        {isTyping ? <Loader/> : (
+            <button type="submit" className="chat-gpt__submit">Ask AI</button>
+        )}
       </form>
   )
 }
